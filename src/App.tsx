@@ -1,8 +1,15 @@
 import React, {useState, useEffect} from 'react';
 import Post from './components/Post/Post';
 
+interface PostProps {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+}
+
 function App() {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<PostProps[]>([]);
   const [visiblePosts, setVisiblePosts] = useState(4);
 
   useEffect(() => {
