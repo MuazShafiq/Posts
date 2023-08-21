@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface PostProps {
   userId: number;
   id: number;
