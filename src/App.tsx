@@ -36,7 +36,7 @@ function App() {
   return (
     <>
       <div className="container mx-auto min-h-screen min-w-full bg-fixed bg-gradient-to-br from-[#30bfd5] to-[#35ca82]">
-        <h1 className="text-4xl font-semibold mb-4 p-8 text-slate-700">Posts</h1>
+        <h1 className="text-4xl font-bold mb-4 p-8 text-slate-700">Posts</h1>
         <div className='grid grid-cols-4 bg-transparent gap-6 mx-8'>
           {posts.slice(0, visiblePosts).map(post => (
             <Post key={post.id} {...post} />

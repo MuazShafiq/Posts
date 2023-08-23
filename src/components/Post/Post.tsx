@@ -7,9 +7,9 @@ interface PostProps {
 
 function Post(Props: PostProps){
   return (
-    <div className="grid grid-rows-2 px-4 rounded shadow-lg">
-      <h3 className="text-xl font-semibold pt-4">{Props.title}</h3>
-      <p className="pb-4 -mt-4">{Props.body}</p>
+    <div className="flex flex-col justify-around p-4 gap-4 rounded shadow-lg">
+      <h3 className="text-lg font-semibold">{Props.title}</h3>
+      <p className="">{Props.body}</p>
     </div>
   );
 }
