@@ -44,7 +44,7 @@ function App() {
           </h1>
           {loading ? (
             <p className="text-4xl text-slate-600 text-center font-zanna">
-              Loading <span className='animate-spin'>⚙</span>
+              Loading <span className='inline-block animate-spin'>⚙</span>
             </p>
           ) : (
             <div className='grid grid-cols-4 bg-transparent gap-6 mx-8'>
