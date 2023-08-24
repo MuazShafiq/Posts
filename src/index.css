@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: "artik";
+    src: url("/fonts/artik.ttf");
+  }
+
+  @font-face {
+    font-family: "zanna";
+    src: url("/fonts/zanna.otf");
+  }

@@ -9,6 +9,7 @@ interface PostProps {
 }
 
 function App() {
+  const [loading, setLoading] = useState(true);
   const [posts, setPosts] = useState<PostProps[]>([]);
   const [visiblePosts, setVisiblePosts] = useState(4);
 
@@ -21,6 +22,7 @@ function App() {
         return response.json();
       })
       .then(data => {
+        setLoading(false);
         setPosts(data);
       })
       .catch(error => {
@@ -36,18 +38,28 @@ function App() {
   return (
     <>
       <div className="container mx-auto min-h-screen min-w-full bg-fixed bg-gradient-to-br from-[#30bfd5] to-[#35ca82]">
-        <h1 className="text-4xl font-bold mb-4 p-8 text-slate-700">Posts</h1>
-        <div className='grid grid-cols-4 bg-transparent gap-6 mx-8'>
-          {posts.slice(0, visiblePosts).map(post => (
-            <Post key={post.id} {...post} />
-          ))}
+        <div className='flex flex-col justify-center'>
+          <h1 className="text-8xl uppercase font-zanna mb-4 p-8 text-slate-600 text-center">
+            Posts
+          </h1>
+          {loading ? (
+            <p className="text-4xl text-slate-600 text-center font-zanna">
+              Loading
+            </p>
+          ) : (
+            <div className='grid grid-cols-4 bg-transparent gap-6 mx-8'>
+              {posts.slice(0, visiblePosts).map(post => (
+                <Post key={post.id} {...post} />
+              ))}
+            </div>
+          )}
+          <button
+            className="py-2 my-8 rounded-full border border-slate-600 text-slate-600 shadow-xl mx-[43rem] animate-bounce"
+            onClick={loadMorePosts}
+          >
+            Load More Posts
+          </button>
         </div>
-        <button
-          className="ml-8 py-2 px-4 my-8 rounded-full border border-slate-700 text-slate-600 shadow-xl"
-          onClick={loadMorePosts}
-        >
-          Load More Posts
-        </button>
       </div>
     </>
   );
