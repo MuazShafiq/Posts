@@ -7,7 +7,7 @@ interface PostProps {
 
 function Posts(Props: PostProps){
   return (
-    <div className="flex flex-col justify-center p-4 gap-4 rounded shadow-2xl bg-opacity-40 backdrop-blur-md bg-gray-300">
+    <div className="flex flex-col justify-center p-4 gap-4 rounded-lg shadow-2xl bg-opacity-40 backdrop-blur-md bg-gray-300">
       <h3 className="text-lg font-semibold">{Props.title}</h3>
       <div className="bg-slate-700 h-[0.5px]">
       </div>
