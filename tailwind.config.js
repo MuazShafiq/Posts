@@ -9,6 +9,7 @@ export default {
       fontFamily: {
         'artik': ['artik', 'serif'],
         'zanna': ['zanna', 'serif'],
+        'didot': ['didot', 'serif']
       }
     },
   },

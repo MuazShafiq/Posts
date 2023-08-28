@@ -1,50 +1,36 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState, RootAction } from '../../redux/types';
+import { loadPosts } from '../../redux/actions';
 import PostComponent from '../PostComponent/PostComponent';
-
-interface PostProps {
-    userId: number;
-    id: number;
-    title: string;
-    body: string;
-}
+import { Dispatch } from 'redux';
 
 function PostContainer() {
-    const [loading, setLoading] = useState(true);
-    const [posts, setPosts] = useState<PostProps[]>([]);
-    const [visiblePosts, setVisiblePosts] = useState(4);
+  const loading = useSelector((state: RootState) => state.loading);
+  const posts = useSelector((state: RootState) => state.posts);
+  const visiblePosts = useSelector((state: RootState) => state.visiblePosts);
 
-    useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/posts')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                setLoading(false);
-                setPosts(data);
-            })
-            .catch(error => {
-                console.error('An error occurred:', error);
-            });
-    }, []);
+  const reduxDispatch = useDispatch<Dispatch<RootAction>>();
+  const loadPostsAction = loadPosts();
 
+  useEffect(() => {
+    loadPostsAction(reduxDispatch);
+  }, [reduxDispatch, loadPostsAction]);
 
-    const loadMorePosts = () => {
-        setVisiblePosts(prevVisiblePosts => prevVisiblePosts + 4);
-    };
+  const loadMorePosts = () => {
+    reduxDispatch({ type: 'INCREMENT_VISIBLE_POSTS' });
+  };
 
-    return (
-        <>
-            <PostComponent
-                loadMorePosts = {loadMorePosts}
-                loading = {loading}
-                visiblePosts={visiblePosts}
-                posts={posts}
-            />
-        </>
-    );
+  return (
+    <>
+      <PostComponent
+        loadMorePosts={loadMorePosts}
+        loading={loading}
+        visiblePosts={visiblePosts}
+        posts={posts}
+      />
+    </>
+  );
 }
 
 export default PostContainer;

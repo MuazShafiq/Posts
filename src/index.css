@@ -3,11 +3,16 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: "artik";
-    src: url("/fonts/artik.ttf");
-  }
+  font-family: "artik";
+  src: url("/fonts/artik.ttf");
+}
 
-  @font-face {
-    font-family: "zanna";
-    src: url("/fonts/zanna.otf");
-  }
+@font-face {
+  font-family: "zanna";
+  src: url("/fonts/zanna.otf");
+}
+
+@font-face {
+  font-family: "didot";
+  src: url("/fonts/didot.otf");
+}
