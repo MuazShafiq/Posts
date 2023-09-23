@@ -1,5 +1,4 @@
 import Posts from '../Posts/Posts';
-import Marquee from "react-fast-marquee";
 
 interface PostProps {
   userId: number;
@@ -28,12 +27,12 @@ function PostComponent(Props: ComponentProps) {
           </div>
           {Props.loading ? (
             <div className='flex container mx-auto justify-center'>
-              {/* <p className="text-8xl p-6 rounded-xl text-slate-600 text-center font-sans animate-spin">
+              <p className="text-8xl p-6 rounded-xl text-slate-600 text-center font-sans animate-spin">
                 ⚙
-              </p> */}
-              <Marquee loop={0} direction='left' speed={200} className="text-4xl p-6 text-white bg-black text-center">
-                Loading...
-              </Marquee>
+              </p>
+              {/* <Marquee loop={0} direction='left' speed={700} className="text-4xl p-6 text-slate-600 bg-opacity-40 backdrop-blur-md bg-gray-300 text-center">
+                <p>Loading...</p>
+              </Marquee> */}
             </div>
           ) : (
             <div className='grid grid-cols-4 gap-6 mx-8'>
