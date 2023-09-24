@@ -18,7 +18,7 @@ function PostComponent(Props: ComponentProps) {
 
   return (
     <>
-      <div className="container mx-auto min-h-screen min-w-full bg-fixed bg-[url('/images/bgImg2.jpg')] bg-cover bg-no-repeat bg-center ">
+      <div className="container mx-auto min-h-screen min-w-full bg-fixed bg-[url('/images/7c5.jpg')] lg:bg-[url('/images/bgImg2.jpg')] bg-cover bg-no-repeat bg-center">
         <div className='flex flex-col justify-center'>
           <div className='flex container mx-auto justify-center'>
             <h1 className="text-[7rem] font-extralight uppercase font-didot text-slate-600 ">
